@@ -1,0 +1,14 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#nav > ul {
+  list-style-type: none;
+  margin-left: -2.5em;
+}
+
+#nav > ul > li {
+  display: inline;
+  padding-right: 1em;
+}
