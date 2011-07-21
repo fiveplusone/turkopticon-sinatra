@@ -1,0 +1,11 @@
+- if session[:person_id]
+  - person = Person.find(session[:person_id])
+
+%ul
+  - if session[:person_id]
+    %li= person.email
+    %li= link_to '/settings', "Settings"
+    %li= link_to '/logout', "Logout"
+  - else
+    %li= link_to '/login', "Login"
+    %li= link_to '/register', "Register"

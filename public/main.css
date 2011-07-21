@@ -3,12 +3,21 @@ body {
   margin: 0 auto;
 }
 
-#nav > ul {
+#nav > ul, #login > ul {
   list-style-type: none;
   margin-left: -2.5em;
 }
 
-#nav > ul > li {
+#nav > ul > li, #login > ul > li {
   display: inline;
   padding-right: 1em;
+}
+
+.label {
+  display: inline-block;
+  min-width: 8em;
+}
+
+.error {
+  color: #f00;
 }

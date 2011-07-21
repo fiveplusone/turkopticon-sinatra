@@ -1,9 +1,15 @@
 !!!
 %html
   %head
-    %link{:rel => "stylesheet", :href => "/main.css", :type => "text/css"}
-    %title Turkopticon
+    %link(rel='stylesheet' href='/main.css' type='text/css')
+    %title
+      Turkopticon
+      - if @title
+        = ":: " + @title
   %body
+    #login= partial :login
     %h1 Turkopticon
     #nav= partial :nav
+    - if @title
+      %h2= @title
     #main= yield

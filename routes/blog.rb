@@ -1,0 +1,2 @@
+get '/blog' do
+end

@@ -1,0 +1,17 @@
+- if @error
+  .error= @error
+
+%form(action='/login' method='POST')
+  %p
+    .label Username
+    %input(type='text' name='name' value='#{params[:name]}')
+    If you have an account but no username, enter your email address.
+  %p
+    .label Password
+    %input(type='password' name='password' value='#{params[:password]}')
+    = link_to '/forgot_password', "I forgot"
+  %p
+    Don't have an account?
+    = link_to '/register', "Sign up"
+  %p
+    %input(type='submit' value='Login')

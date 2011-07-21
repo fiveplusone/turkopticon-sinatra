@@ -1,0 +1,43 @@
+This is documentation for turkopticon-dev, the development branch of Turkopticon.
+
+six@wtf.tw
+20 Jul 2011
+Last update 20 Jul 2011
+
+Turkopticon helps workers on Amazon's Mechanical Turk platform report and avoid shady employers ('requesters') by reviewing them on a third-party platform.
+
+In turkopticon-dev, we attempt to refactor the existing codebase and introduce some new features to address a range of problems.
+
+1 Implemented Interactions
+
++ Login
++ Logout
++ Register
+  + Validation
+    + username must be present and unique
+    + email address must be present and valid format
+    + password must be present and match confirmation
+
+2 Interactions to be Implemented
+
++ Registration, etc.
+  + Email password to address on file
+  + Change password
+  + Send verification email on register
+  + Resend verification email
+  + Confirm email address
+
++ Settings
+
++ Review a requester
++ Requester list
++ Review list
+
++ Search
+
++ Blog
+
++ FAQ
+
++ Flagging
++ Moderation

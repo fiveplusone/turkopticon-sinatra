@@ -1,0 +1,21 @@
+%form(action='/register' method='POST')
+  %p
+    .label Select Username
+    %input(type='text' name='name' value='#{params[:name]}')
+    - if @person and @person.errors
+      %span.error= @person.errors[:name].join(", ")
+  %p
+    .label Email Address
+    %input(type='text' name='email' value='#{params[:email]}')
+    - if @person and @person.errors
+      %span.error= @person.errors[:email].join(", ")
+  %p
+    .label Select Password
+    %input(type='password' name='password' value='#{params[:password]}')
+    - if @person and @person.errors
+      %span.error= @person.errors[:password].join(", ")
+  %p
+    .label Confirm Password
+    %input(type='password' name='password_confirmation' value='#{params[:password_confirmation]}')
+  %p
+    %input(type='submit' value='Register')
