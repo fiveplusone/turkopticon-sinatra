@@ -44,3 +44,20 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 
 + Flagging
 + Moderation
+
+3 Dependencies
+
++ sinatra
++ sinatra-activerecord
++ haml
++ actionmailer
+
+4 Load Error Workarounds
+
+Error: On requiring ActionMailer,
+
+  Gem::LoadError: can't activate rack (~> 1.2.1, runtime) for ["actionpack-3.0.9", "actionmailer-3.0.9"], already activated rack-1.3.0 for ["sinatra-1.2.6"]
+
+Fix: In the actionpack gemspec, change '~>' to '>=' in the rack dependency,
+
+  s.add_runtime_dependency(%q<rack>, [">= 1.2.1"])
