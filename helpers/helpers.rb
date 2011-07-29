@@ -26,7 +26,7 @@ helpers do
   end
 
   # for email confirmation
-  def confirmation_hash(string)
+  def verification_hash(string)
     Digest::SHA1.hexdigest(string + "hi there")
   end
   

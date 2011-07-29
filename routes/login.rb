@@ -23,7 +23,7 @@ end
 post '/register' do
   @person = Person.new(params)
   if @person.save
-    RegMailer.confirm(@person, confirmation_hash(@person.email)).deliver
+    RegMailer.verify(@person, verification_hash(@person.email)).deliver
     session[:person_id] = @person.id
     redirect '/requesters'
   else
@@ -37,8 +37,30 @@ get '/logout' do
   redirect '/'
 end
 
-# confirm_email
-# send_confirmation_email
+get '/email_verification' do
+  @title = 'Email Verification'
+  haml :email_verification
+end
+
+get '/send_verification_email' do
+  person = Person.find(session[:person_id])
+  RegMailer.verify(person, verification_hash(person.email)).deliver
+  @title = 'Email Verification'
+  @notice = "We've emailed #{person.email}. Please click the link in the email to verify your address."
+  haml :email_verification
+end
+
+get '/verify_email/:hash' do
+  for person in Person.all
+    if verification_hash(person.email) == params[:hash] and person.update_attribute('email_verified', true)
+      session[:person_id] = person.id
+      session[:notice] = 'Thank you for verifying your email address.'
+      redirect '/requesters'
+    end
+  end
+  @title = 'Email Verification'
+  haml :verify_email
+end
 
 get '/forgot_password' do
   @title = "Forgot Password"

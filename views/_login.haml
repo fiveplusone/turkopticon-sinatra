@@ -3,7 +3,10 @@
 
 %ul
   - if session[:person_id]
-    %li= person.email
+    %li
+      = person.email
+      - unless person.email_verified
+        = link_to '/email_verification', "unverified"
     %li= link_to '/settings', "Settings"
     %li= link_to '/change_password', "Change password"
     %li= link_to '/logout', "Logout"

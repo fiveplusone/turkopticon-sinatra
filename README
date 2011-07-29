@@ -23,32 +23,31 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 
 2 Interactions to be Implemented
 
-+ Email stuff
-  + Email new password on change
-    + Implemented, need to test
-  + Send verification email on register
-    + Implemented, need to test
-  + Lost password (send email)
-    + Implemented, need to test
-  + Resend verification email
-  + Confirm email address
++ Require login to
+  + View requester list
+  + View reviews
 
 + Settings
 
 + Review a requester
 + Requester list
 + Review list
-
 + Search
-
 + Blog
-
 + FAQ
-
 + Flagging
 + Moderation
 
-3 Dependencies
+3 Interactions to be Tested
+
++ Emails
+  + Email new password on change
+  + Send verification email on register
+  + Lost password (send email)
+  + (Re)send confirmation email
+  + Confirm email address
+
+4 Dependencies
 
 + sinatra
 + sinatra-activerecord
@@ -56,7 +55,7 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + actionmailer
 + sqlite3
 
-4 Load Error Workarounds
+5 Load Error Workarounds
 
 Error: On requiring ActionMailer,
 

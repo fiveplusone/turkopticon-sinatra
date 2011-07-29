@@ -1,0 +1,8 @@
+- if @notice
+  .notice= @notice
+
+%p
+  To make it slightly less convenient for shady requesters to give themselves good reviews on Turkopticon (yes, people actually do this), we ask users to verify their email addresses by clicking a link in an email we send.
+
+%p
+  = link_to '/send_verification_email', "Send me a verification email"

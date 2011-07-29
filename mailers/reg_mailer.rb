@@ -2,8 +2,8 @@ class RegMailer < ActionMailer::Base
   SEND_BCC = true
   FROM = 'turkopticon@differenceengines.com'
 
-  def confirm(person, hash)
-    @subject = '[turkopticon] Please confirm your email address'
+  def verify(person, hash)
+    @subject = '[turkopticon] Please verify your email address'
     @body['hash'] = hash
     @recipients = person.email
     @from = FROM
