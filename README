@@ -2,7 +2,7 @@ This is documentation for turkopticon-dev, the development branch of Turkopticon
 
 six@wtf.tw
 20 Jul 2011
-Last update 28 Jul 2011
+Last update 29 Jul 2011
 
 Turkopticon helps workers on Amazon's Mechanical Turk platform report and avoid shady employers ('requesters') by reviewing them on a third-party platform.
 
@@ -25,8 +25,11 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 
 + Email stuff
   + Email new password on change
-  + Lost password (send email)
+    + Implemented, need to test
   + Send verification email on register
+    + Implemented, need to test
+  + Lost password (send email)
+    + Implemented, need to test
   + Resend verification email
   + Confirm email address
 
@@ -51,6 +54,7 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + sinatra-activerecord
 + haml
 + actionmailer
++ sqlite3
 
 4 Load Error Workarounds
 

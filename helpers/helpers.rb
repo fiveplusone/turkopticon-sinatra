@@ -24,6 +24,10 @@ helpers do
   def pluralize(count, singular, plural)
     "#{count || 0} " + ((count == 1 || count =~ /^1(\.0+)?$/) ? singular : plural)
   end
-  
+
+  # for email confirmation
+  def confirmation_hash(string)
+    Digest::SHA1.hexdigest(string + "hi there")
+  end
   
 end
