@@ -44,6 +44,28 @@ get '/forgot_password' do
 end
 
 get '/change_password' do
+  @title = "Change Password"
+  haml :change_password
+end
+
+post '/change_password' do
+  person = Person.find(session[:person_id])
+  if params[:password].blank?
+    @error = "Password can't be blank."
+    @title = "Change Password"
+    haml :change_password
+  elsif params[:password] != params[:password_confirmation]
+    @error = "Password must match confirmation."
+    @title = "Change Password"
+    haml :change_password
+  elsif person.update_attribute('password', params[:password])
+    session[:notice] = "Password changed."
+    redirect '/requesters'
+  else
+    @error = "Something unexpected happened. If you have a minute, please email us."
+    @title = "Change Password"
+    haml :change_password
+  end
 end
 
 get '/settings' do

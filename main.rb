@@ -20,6 +20,10 @@ get '/' do
 end
 
 get '/requesters' do
+  if session[:notice]
+    @notice = session[:notice]
+    session[:notice] = nil
+  end
   @title = "Requester List"
   haml :requesters
 end

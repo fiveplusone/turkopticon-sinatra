@@ -18,6 +18,10 @@ body {
   min-width: 8em;
 }
 
+.notice {
+  color: #090;
+}
+
 .error {
   color: #f00;
 }
