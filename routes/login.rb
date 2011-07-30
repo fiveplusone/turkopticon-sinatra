@@ -44,7 +44,9 @@ end
 
 get '/send_verification_email' do
   person = Person.find(session[:person_id])
-  RegMailer.verify(person, verification_hash(person.email)).deliver
+  mail = RegMailer.verify(person, verification_hash(person.email))
+  mail.deliver
+  LOG.info "sent mail:\n" + mail.to_s
   @title = 'Email Verification'
   @notice = "We've emailed #{person.email}. Please click the link in the email to verify your address."
   haml :email_verification

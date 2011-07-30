@@ -1,35 +1,22 @@
 class RegMailer < ActionMailer::Base
-  SEND_BCC = true
-  FROM = 'turkopticon@differenceengines.com'
+  TURKOPTICON = 'turkopticon@differenceengines.com'
+  default :from => TURKOPTICON, :bcc => TURKOPTICON
 
   def verify(person, hash)
-    @subject = '[turkopticon] Please verify your email address'
-    @body['hash'] = hash
-    @recipients = person.email
-    @from = FROM
-    @bcc = FROM if SEND_BCC
-    @sent_on = Time.now
-    @headers = {}
+    @hash = hash
+    mail(:to => person.email, :subject => '[turkopticon] Please verify your email address')
   end
 
   def password_changed(person, new_password)
-    @subject = '[turkopticon] Your password was changed'
-    @body['new_password'] = new_password
-    @recipients = person.email
-    @from = FROM
-    @bcc = FROM if SEND_BCC
-    @sent_on = Time.now
-    @headers = {}
+    @new_password = new_password
+    mail(:to => person.email, :subject => '[turkopticon] Your password was changed')
   end
 
   def password_reset(person, new_password)
-    @subject = '[turkopticon] Your password was reset'
-    @body['new_password'] = new_password
-    @recipients = person.email
-    @from = FROM
-    @bcc = FROM if SEND_BCC
-    @sent_on = Time.now
-    @headers = {}
+    @new_password = new_password
+    mail(:to => person.email, :subject => '[turkopticon] Your password was reset')
   end
 
 end
+
+RegMailer.delivery_method = :sendmail
