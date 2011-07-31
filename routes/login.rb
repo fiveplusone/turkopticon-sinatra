@@ -1,4 +1,8 @@
 get '/login' do
+  if session[:error]
+    @error = session[:error]
+    session[:error] = nil
+  end
   @title = "Login"
   haml :login
 end
@@ -7,7 +11,13 @@ post '/login' do
   person = Person.authenticate(params[:name], params[:password])
   if person
     session[:person_id] = person.id
-    redirect '/requesters'
+    if session[:original_path]
+      path = session[:original_path]
+      session[:original_path] = nil
+      redirect path
+    else
+      redirect '/requesters'
+    end
   else
     @error = "Sorry, that username/password combination isn't in our database."
     @title = "Login"

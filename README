@@ -2,7 +2,7 @@ This is documentation for turkopticon-dev, the development branch of Turkopticon
 
 six@wtf.tw
 20 Jul 2011
-Last update 29 Jul 2011
+Last update 31 Jul 2011
 
 Turkopticon helps workers on Amazon's Mechanical Turk platform report and avoid shady employers ('requesters') by reviewing them on a third-party platform.
 
@@ -18,20 +18,20 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
     + email address must be present and valid format
     + password must be present and match confirmation
 + Change password
-    + password must be present and match confirmation
-    + appropriate error message displayed otherwise
+  + password must be present and match confirmation
+  + appropriate error message displayed otherwise
++ Protected paths
+  + Requester list
+  + Reviews
 
-2 Interactions to be Implemented
+2 To Implement
 
-+ Require login to
-  + View requester list
-  + View reviews
-
-+ Settings
-
++ Requester model
++ Review model
 + Requester list
 + Review list
 + Review a requester
++ Settings
 + Search
 + Blog
 + FAQ
@@ -40,7 +40,7 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 
 3 Broken Things
 
-+ Email templates not used (convert emails to pony?)
++ Convert email sending to pony
 
 4 Interactions to be Tested
 
