@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'haml'
-require 'action_mailer'
+
+$LOAD_PATH.unshift('/Users/six/src/turkopticon')
+require 'constants'
 
 $LOAD_PATH.unshift('/Users/six/src/turkopticon/helpers')
 require 'partials'
@@ -14,7 +16,7 @@ require 'requester'
 require 'review'
 
 $LOAD_PATH.unshift('/Users/six/src/turkopticon/mailers')
-require 'reg_mailer'
+require 'reg_mail'
 
 $LOAD_PATH.unshift('/Users/six/src/turkopticon/routes')
 require 'login'

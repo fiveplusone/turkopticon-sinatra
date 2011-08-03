@@ -25,9 +25,4 @@ helpers do
     "#{count || 0} " + ((count == 1 || count =~ /^1(\.0+)?$/) ? singular : plural)
   end
 
-  # for email confirmation
-  def verification_hash(string)
-    Digest::SHA1.hexdigest(string + "hi there")
-  end
-  
 end

@@ -33,7 +33,12 @@ end
 post '/register' do
   @person = Person.new(params)
   if @person.save
-    RegMailer.verify(@person, verification_hash(@person.email)).deliver
+    # RegMailer.verify(@person, verification_hash(@person.email)).deliver
+    email = @person.email
+    Pony.mail(:to => email,
+              :from => TURKOPTICON_EMAIL,
+	      :subject => '[turkopticon] Please verify your email address',
+	      :body => RegMail.verify(@person))
     session[:person_id] = @person.id
     redirect '/requesters'
   else
