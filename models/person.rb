@@ -9,6 +9,8 @@ class Person < ActiveRecord::Base
   validates_presence_of :password
   validates_confirmation_of :password
 
+  has_many :reviews
+
   def password
     @password
   end

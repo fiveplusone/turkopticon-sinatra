@@ -23,11 +23,13 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + Protected paths
   + Requester list
   + Reviews
++ Requester table and model
++ Review table and model
++ Add timestamps and auto-timestamping to everything
 
 2 To Implement
 
-+ Requester model
-+ Review model
++ Switch mail system to pony
 + Requester list
 + Review list
 + Review a requester
@@ -38,21 +40,17 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + Flagging
 + Moderation
 
-3 Broken Things
-
-+ Convert email sending to pony
-
-4 Interactions to be Tested
+3 Interactions to be Tested
 
 + None right now
 
-5 Other Todos
+4 Other Todos
 
 + Logging
 + Error alerts
 + Analytics
 
-6 Dependencies
+5 Dependencies
 
 + sinatra
 + sinatra-activerecord
@@ -60,7 +58,7 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + actionmailer
 + sqlite3
 
-7 Load Error Workarounds
+6 Load Error Workarounds
 
 Error: On requiring ActionMailer,
 

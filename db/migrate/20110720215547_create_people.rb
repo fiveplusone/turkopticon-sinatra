@@ -7,8 +7,8 @@ class CreatePeople < ActiveRecord::Migration
       t.string :salt
       t.boolean :email_verified
       t.boolean :is_admin
+      t.timestamps
     end
-    add_index :people, :name
   end
 
   def self.down

@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'haml'
+require 'action_mailer'
 
 $LOAD_PATH.unshift('/Users/six/src/turkopticon/helpers')
 require 'partials'
@@ -9,10 +10,11 @@ require 'before'
 
 $LOAD_PATH.unshift('/Users/six/src/turkopticon/models')
 require 'person'
+require 'requester'
+require 'review'
 
 $LOAD_PATH.unshift('/Users/six/src/turkopticon/mailers')
-# todo: reconfigure to use pony, not actionmailer
-# require 'reg_mailer'
+require 'reg_mailer'
 
 $LOAD_PATH.unshift('/Users/six/src/turkopticon/routes')
 require 'login'
