@@ -33,9 +33,7 @@ end
 post '/register' do
   @person = Person.new(params)
   if @person.save
-    # RegMailer.verify(@person, verification_hash(@person.email)).deliver
-    email = @person.email
-    Pony.mail(:to => email,
+    Pony.mail(:to => @person.email,
               :from => TURKOPTICON_EMAIL,
 	      :subject => '[turkopticon] Please verify your email address',
 	      :body => RegMail.verify(@person))
@@ -59,8 +57,10 @@ end
 
 get '/send_verification_email' do
   person = Person.find(session[:person_id])
-  mail = RegMailer.verify(person, verification_hash(person.email))
-  mail.deliver
+  Pony.mail(:to => person.email,
+            :from => TURKOPTICON_EMAIL,
+	    :subject => '[turkopticon] Please verify your email address',
+	    :body => RegMail.verify(person))
   LOG.info "sent mail:\n" + mail.to_s
   @title = 'Email Verification'
   @notice = "We've emailed #{person.email}. Please click the link in the email to verify your address."
@@ -103,7 +103,10 @@ post '/reset_password' do
     new_password = person.object_id.to_s + Time.now.strftime("%s")
     new_password.gsub!(/0/, 'a').gsub!(/1/, '_')
     person.update_attribute('password', new_password)
-    RegMailer.password_reset(person, new_password).deliver
+    Pony.mail(:to => person.email,
+              :from => TURKOPTICON_EMAIL,
+	      :subject => '[turkopticon] Your password was reset',
+	      :body => RegMail.password_reset(@person))
     session[:notice] = "Your password was reset. Your new password was emailed to #{person.email}."
   end
 end
@@ -125,7 +128,10 @@ post '/change_password' do
     haml :change_password
   elsif person.update_attribute('password', params[:password])
     session[:notice] = "Password changed."
-    RegMailer.password_changed(person, new_password).deliver
+    Pony.mail(:to => person.email,
+              :from => TURKOPTICON_EMAIL,
+	      :subject => '[turkopticon] Your password was changed',
+	      :body => RegMail.password_changed(@person))
     redirect '/requesters'
   else
     @error = "Something unexpected happened. If you have a minute, please email us."

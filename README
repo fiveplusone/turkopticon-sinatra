@@ -26,12 +26,10 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + Requester table and model
 + Review table and model
 + Add timestamps and auto-timestamping to everything
-
-1.5 In Progress
-
-+ Switching mail system to pony
-  + Not successfully using Sinatra::Templates.haml (mailers/reg_mailer.rb:4)
-  + Switch all calls in routes/login.rb to RegMailer.foo(bar).deliver to Pony
++ Emails
+  + Email address verification (automatically on register; user can resend)
+  + Password change
+  + Password reset
 
 2 To Implement
 
@@ -62,7 +60,7 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + sinatra
 + sinatra-activerecord
 + haml
-+ actionmailer
++ pony
 + sqlite3
 
 6 Load Error Workarounds

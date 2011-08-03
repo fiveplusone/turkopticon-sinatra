@@ -16,7 +16,7 @@ require 'requester'
 require 'review'
 
 $LOAD_PATH.unshift('/Users/six/src/turkopticon/mailers')
-require 'reg_mail'
+require 'reg_mailer'
 
 $LOAD_PATH.unshift('/Users/six/src/turkopticon/routes')
 require 'login'
