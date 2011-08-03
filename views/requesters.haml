@@ -1,5 +1,9 @@
 - if @notice
   .notice= @notice
 
-%p
-  Requester list
+%table
+  %tr
+    %th Requester Name &amp; ID
+    %th Ratings (averaged)
+    %th # Reviews
+  = partial :requester, :collection => @requesters

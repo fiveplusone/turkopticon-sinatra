@@ -1,0 +1,18 @@
+%tr
+  %td
+    %strong= requester.amzn_name
+    = requester.amzn_id
+  %td
+    comm:
+    = requester.comm.to_s
+    %br/
+    fair:
+    = requester.fair.to_s
+    %br/
+    fast:
+    = requester.fast.to_s
+    %br/
+    pay:
+    = requester.pay.to_s
+  %td
+    = requester.review_count.to_s

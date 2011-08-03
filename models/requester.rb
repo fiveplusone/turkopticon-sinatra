@@ -7,4 +7,17 @@ class Requester < ActiveRecord::Base
 
   has_many :reviews
 
+  def comm
+    2.5
+  end
+  def fair
+    2.5
+  end
+  def fast
+    2.5
+  end
+  def pay
+    2.5
+  end
+
 end

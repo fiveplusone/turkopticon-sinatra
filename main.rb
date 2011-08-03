@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'haml'
+require 'pony'
 
 $LOAD_PATH.unshift('/Users/six/src/turkopticon')
 require 'constants'
@@ -34,6 +35,7 @@ get '/requesters' do
     @notice = session[:notice]
     session[:notice] = nil
   end
+  @requesters = Requester.all
   @title = "Requester List"
   haml :requesters
 end
