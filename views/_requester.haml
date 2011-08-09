@@ -1,18 +1,20 @@
+- denom = "&nbsp;/&nbsp;5"
+
 %tr
   %td
     %strong= requester.amzn_name
     = requester.amzn_id
   %td
-    comm:
-    = requester.comm.to_s
+    .attr_label comm:
+    = requester.comm.to_s + denom
     %br/
-    fair:
-    = requester.fair.to_s
+    .attr_label fair:
+    = requester.fair.to_s + denom
     %br/
-    fast:
-    = requester.fast.to_s
+    .attr_label fast:
+    = requester.fast.to_s + denom
     %br/
-    pay:
-    = requester.pay.to_s
+    .attr_label pay:
+    = requester.pay.to_s + denom
   %td
     = requester.review_count.to_s

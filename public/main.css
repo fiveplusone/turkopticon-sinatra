@@ -25,3 +25,10 @@ body {
 .error {
   color: #f00;
 }
+
+.attr_label {
+  font-family: monaco, 'courier new', monospace;
+  font-size: 0.8em;
+  width: 4em;
+  display: inline-block;
+}
