@@ -27,10 +27,14 @@ body {
 }
 
 .attr_label {
-  font-family: monaco, 'courier new', monospace;
+  font-family: Monaco, 'Courier New', monospace;
   font-size: 0.8em;
   width: 4em;
   display: inline-block;
+}
+
+th {
+  text-align: left;
 }
 
 .meter {
@@ -43,4 +47,8 @@ body {
 
 .meter_empty {
   background-color: #ddd;
+}
+
+.center {
+  text-align: center;
 }

@@ -8,16 +8,16 @@ class Requester < ActiveRecord::Base
   has_many :reviews
 
   def comm
-    2.5
+    reviews.collect{|r| r.comm}.mean
   end
   def fair
-    2.5
+    reviews.collect{|r| r.fair}.mean
   end
   def fast
-    2.5
+    reviews.collect{|r| r.fast}.mean
   end
   def pay
-    2.5
+    reviews.collect{|r| r.pay}.mean
   end
 
   def self.visualize(val)
@@ -38,4 +38,14 @@ class Requester < ActiveRecord::Base
     str.concat("</span></span>")
   end
 
+end
+
+class Array
+  def mean
+    if self.length == 0
+      0
+    else
+      self.inject{|sum, n| sum + n} / self.length.to_f
+    end
+  end
 end

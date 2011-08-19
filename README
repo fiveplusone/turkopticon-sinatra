@@ -2,7 +2,7 @@ This is documentation for turkopticon-dev, the development branch of Turkopticon
 
 six@wtf.tw
 20 Jul 2011
-Last update 9 Aug 2011
+Last update 18 Aug 2011
 
 Turkopticon helps workers on Amazon's Mechanical Turk platform report and avoid shady employers ('requesters') by reviewing them on a third-party platform.
 
@@ -34,6 +34,11 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 1.5 In Progress
 
 + Requester list
+  + account for N/A attributes
+    + visualize appropriately
+    + calculate appropriately in attribute methods
+  + display scammer
+  + display TOS viol
 
 2 To Implement
 
@@ -60,20 +65,14 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + Error alerts
 + Analytics
 
-5 Dependencies
+5 Non-critical Todos
+
++ Move Requester.visualize into a helper
+
+6 Dependencies
 
 + sinatra
 + sinatra-activerecord
 + haml
 + pony
 + sqlite3
-
-6 Load Error Workarounds
-
-Error: On requiring ActionMailer,
-
-  Gem::LoadError: can't activate rack (~> 1.2.1, runtime) for ["actionpack-3.0.9", "actionmailer-3.0.9"], already activated rack-1.3.0 for ["sinatra-1.2.6"]
-
-Fix: In the actionpack gemspec, change '~>' to '>=' in the rack dependency,
-
-  s.add_runtime_dependency(%q<rack>, [">= 1.2.1"])
