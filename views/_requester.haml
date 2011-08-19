@@ -1,4 +1,8 @@
 - denom = "&nbsp;/&nbsp;5"
+- comm = requester.comm
+- fair = requester.fair
+- fast = requester.fast
+- pay = requester.pay
 
 %tr
   %td
@@ -6,15 +10,15 @@
     = requester.amzn_id
   %td
     .attr_label comm:
-    = requester.comm.to_s + denom
+    = Requester.visualize(comm) + "&nbsp;" + comm.to_s + denom
     %br/
     .attr_label fair:
-    = requester.fair.to_s + denom
+    = Requester.visualize(fair) + "&nbsp;" + fair.to_s + denom
     %br/
     .attr_label fast:
-    = requester.fast.to_s + denom
+    = Requester.visualize(fast) + "&nbsp;" + fast.to_s + denom
     %br/
     .attr_label pay:
-    = requester.pay.to_s + denom
+    = Requester.visualize(pay) + "&nbsp;" + pay.to_s + denom
   %td
     = requester.review_count.to_s

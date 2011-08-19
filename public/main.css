@@ -32,3 +32,15 @@ body {
   width: 4em;
   display: inline-block;
 }
+
+.meter {
+  font-size: 0.8em;
+}
+
+.meter_full {
+  background-color: #03af00;
+}
+
+.meter_empty {
+  background-color: #ddd;
+}
