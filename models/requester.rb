@@ -7,20 +7,42 @@ class Requester < ActiveRecord::Base
 
   has_many :reviews
 
-  def comm
-    reviews.collect{|r| r.comm}.mean
+  DENOM = "&nbsp;/&nbsp;5"
+  EMPTY = "<span class='mono'>no data</span>"
+
+  def comm_text
+    comm == 0 ? EMPTY : Requester.vis(comm) + "&nbsp;" + comm.to_s + DENOM
   end
-  def fair
-    reviews.collect{|r| r.fair}.mean
+  def fair_text
+    fair == 0 ? EMPTY : Requester.vis(fair) + "&nbsp;" + fair.to_s + DENOM
   end
-  def fast
-    reviews.collect{|r| r.fast}.mean
+  def fast_text
+    fast == 0 ? EMPTY : Requester.vis(fast) + "&nbsp;" + fast.to_s + DENOM
   end
-  def pay
-    reviews.collect{|r| r.pay}.mean
+  def pay_text
+    pay == 0 ? EMPTY : Requester.vis(pay) + "&nbsp;" + pay.to_s + DENOM
   end
 
-  def self.visualize(val)
+  def comm
+    reviews.collect{|r| r.comm}.compact.mean
+  end
+  def fair
+    reviews.collect{|r| r.fair}.compact.mean
+  end
+  def fast
+    reviews.collect{|r| r.fast}.compact.mean
+  end
+  def pay
+    reviews.collect{|r| r.pay}.compact.mean
+  end
+  def tos_viol_count
+    reviews.select{|r| r.tos_viol}.length
+  end
+  def scammer_count
+    reviews.select{|r| r.scammer}.length
+  end
+
+  def self.vis(val)
     vmax = 5.0
     chars = 30
     str = "<span class='meter'><span class='meter_full'>"

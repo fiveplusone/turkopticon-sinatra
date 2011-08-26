@@ -2,7 +2,7 @@ This is documentation for turkopticon-dev, the development branch of Turkopticon
 
 six@wtf.tw
 20 Jul 2011
-Last update 18 Aug 2011
+Last update 25 Aug 2011
 
 Turkopticon helps workers on Amazon's Mechanical Turk platform report and avoid shady employers ('requesters') by reviewing them on a third-party platform.
 
@@ -30,15 +30,10 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
   + Email address verification (automatically on register; user can resend)
   + Password change
   + Password reset
-
-1.5 In Progress
-
 + Requester list
-  + account for N/A attributes
-    + visualize appropriately
-    + calculate appropriately in attribute methods
-  + display scammer
-  + display TOS viol
+  + displays scammer and TOS violation flag count
+  + displays 'no data' (rather than 0) if no data for an attribute
+  + nil values not computed in averages
 
 2 To Implement
 
@@ -53,6 +48,7 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + FAQ
 + Flagging
 + Moderation
+  + if moderator says a requester is scammer or TOS viol, indicate
 + Link AMT ID to user account (from:dahn "thumbnail sketch")
 
 3 Interactions to be Tested

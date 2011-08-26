@@ -1,24 +1,22 @@
-- denom = "&nbsp;/&nbsp;5"
-- comm = requester.comm
-- fair = requester.fair
-- fast = requester.fast
-- pay = requester.pay
-
-%tr
+%tr.requester
   %td
     %strong= requester.amzn_name
     = requester.amzn_id
   %td
     .attr_label comm:
-    = Requester.visualize(comm) + "&nbsp;" + comm.to_s + denom
+    = requester.comm_text
     %br/
     .attr_label fair:
-    = Requester.visualize(fair) + "&nbsp;" + fair.to_s + denom
+    = requester.fair_text
     %br/
     .attr_label fast:
-    = Requester.visualize(fast) + "&nbsp;" + fast.to_s + denom
+    = requester.fast_text
     %br/
     .attr_label pay:
-    = Requester.visualize(pay) + "&nbsp;" + pay.to_s + denom
+    = requester.pay_text
   %td
     .center= requester.review_count.to_s
+  %td
+    .center= requester.scammer_count.to_s
+  %td
+    .center= requester.tos_viol_count.to_s
