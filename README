@@ -50,6 +50,7 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + Flagging
 + Moderation
   + if moderator says a requester is scammer or TOS viol, indicate
++ Bring UI in line with turkoptidev.differenceengines.com/reputation-ui-screens/All%20reviews.htm
 + Link AMT ID to user account (from:dahn "thumbnail sketch")
 
 3 Interactions to be Tested
