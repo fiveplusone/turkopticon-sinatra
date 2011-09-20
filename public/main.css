@@ -43,7 +43,11 @@ th {
   padding: 0 0.5em;
 }
 
-.requester > td {
+.wide {
+  min-width: 12em;
+}
+
+.requester > td, .review > td {
   border-top: 1px solid #999;
   padding-top: 2px;
 }

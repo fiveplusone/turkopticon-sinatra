@@ -70,6 +70,7 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 6 Dependencies
 
 + sinatra
++ activerecord
 + sinatra-activerecord
 + haml
 + pony

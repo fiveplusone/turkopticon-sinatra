@@ -1,18 +1,20 @@
-%tr.requester
+- requester = review.requester
+
+%tr.review
   %td
     %strong= requester.amzn_name
     = requester.amzn_id
   %td
     .attr_label comm:
-    = requester.comm_text
+    = review.comm_text
     %br/
     .attr_label fair:
-    = requester.fair_text
+    = review.fair_text
     %br/
     .attr_label fast:
-    = requester.fast_text
+    = review.fast_text
     %br/
     .attr_label pay:
-    = requester.pay_text
+    = review.pay_text
   %td
-    .center= requester.review_count.to_s
+    = review.notes
