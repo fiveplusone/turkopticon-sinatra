@@ -3,23 +3,23 @@ require 'sinatra/activerecord'
 require 'haml'
 require 'pony'
 
-$LOAD_PATH.unshift('/Users/six/src/turkopticon')
+$LOAD_PATH.unshift File.dirname(File.expand_path(__FILE__))
 require 'constants'
 
-$LOAD_PATH.unshift('/Users/six/src/turkopticon/helpers')
+$LOAD_PATH.unshift File.join(File.dirname(File.expand_path(__FILE__)), 'helpers')
 require 'partials'
 require 'helpers'
 require 'before'
 
-$LOAD_PATH.unshift('/Users/six/src/turkopticon/models')
+$LOAD_PATH.unshift File.join(File.dirname(File.expand_path(__FILE__)), 'models')
 require 'person'
 require 'requester'
 require 'review'
 
-$LOAD_PATH.unshift('/Users/six/src/turkopticon/mailers')
+$LOAD_PATH.unshift File.join(File.dirname(File.expand_path(__FILE__)), 'mailers')
 require 'reg_mailer'
 
-$LOAD_PATH.unshift('/Users/six/src/turkopticon/routes')
+$LOAD_PATH.unshift File.join(File.dirname(File.expand_path(__FILE__)), 'routes')
 require 'login'
 require 'blog'
 
