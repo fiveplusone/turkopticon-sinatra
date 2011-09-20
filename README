@@ -2,7 +2,7 @@ This is documentation for turkopticon-dev, the development branch of Turkopticon
 
 six@wtf.tw
 20 Jul 2011
-Last update 11 Sep 2011
+Last update 19 Sep 2011
 
 Turkopticon helps workers on Amazon's Mechanical Turk platform report and avoid shady employers ('requesters') by reviewing them on a third-party platform.
 
@@ -34,10 +34,10 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
   + displays scammer and TOS violation flag count
   + displays 'no data' (rather than 0) if no data for an attribute
   + nil values not computed in averages
++ Review list
 
 2 To Implement
 
-+ Review list
 + Review a requester
   + Require verified, non-throwaway email address before posting
 + Auto-cache requester avg_val and review_count after review save
