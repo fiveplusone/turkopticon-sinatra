@@ -35,12 +35,6 @@ class Requester < ActiveRecord::Base
   def pay
     reviews.collect{|r| r.pay}.compact.mean
   end
-  def tos_viol_count
-    reviews.select{|r| r.tos_viol}.length
-  end
-  def scammer_count
-    reviews.select{|r| r.scammer}.length
-  end
 
   def self.vis(val)
     vmax = 5.0

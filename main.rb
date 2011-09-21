@@ -41,6 +41,11 @@ get '/requesters' do
 end
 
 get '/reviews' do
+  if session[:notice]
+    @notice = session[:notice]
+    session[:notice] = nil
+  end
+  @reviews = Review.all
   @title = "Reviews"
   haml :reviews
 end

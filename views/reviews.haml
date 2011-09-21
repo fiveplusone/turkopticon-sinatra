@@ -1,2 +1,9 @@
-%p
-  Reviews
+- if @notice
+  .notice= @notice
+
+%table
+  %tr
+    %th.wide Requester Name &amp; ID
+    %th.wide Ratings
+    %th Description
+  = partial :review, :collection => @reviews
