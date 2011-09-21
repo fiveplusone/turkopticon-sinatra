@@ -45,7 +45,7 @@ class Requester < ActiveRecord::Base
   def self.vis(val)
     vmax = 5.0
     chars = 30
-    str = "<span class='meter'><span class='meter_full'>"
+    str = "<div class='meter_container'><span class='meter'><span class='meter_full'>"
     full_fraction = val / vmax
     full_chars = full_fraction * chars
     full_chars = full_chars.round
@@ -57,7 +57,7 @@ class Requester < ActiveRecord::Base
     empty_chars.times do
       str.concat("&nbsp;")
     end
-    str.concat("</span></span>")
+    str.concat("</span></span></div>")
   end
 
 end
