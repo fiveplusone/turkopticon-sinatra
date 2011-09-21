@@ -16,6 +16,7 @@ body {
 .label {
   display: inline-block;
   min-width: 8em;
+border: 1px solid red;
 }
 
 .notice {
@@ -26,9 +27,14 @@ body {
   color: #f00;
 }
 
+.meter_container {
+  display: inline-block;
+  vertical-align: middle; 
+  height: 9px;
+
+}
+
 .attr_label {
-  font-family: Monaco, 'Courier New', monospace;
-  font-size: 0.8em;
   width: 4em;
   display: inline-block;
 }
@@ -45,11 +51,12 @@ th {
 
 .requester > td {
   border-top: 1px solid #999;
-  padding-top: 2px;
+  font-size: 0.7em;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
 }
 
 .meter {
-  font-size: 0.8em;
+  font-size: 5px;
 }
 
 .meter_full {
