@@ -50,5 +50,10 @@ get '/reviews' do
   haml :reviews
 end
 
+get '/review' do
+  @title = "Review a Requester"
+  haml :review
+end
+
 get '/faq' do
 end
