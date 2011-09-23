@@ -7,20 +7,20 @@ class Requester < ActiveRecord::Base
 
   has_many :reviews
 
-  DENOM = "&nbsp;/&nbsp;5"
+  DENOM = "&nbsp;/&nbsp;5&nbsp"
   EMPTY = "<span class='mono'>no data</span>"
 
   def comm_text
-    comm == 0 ? EMPTY : Requester.vis(comm) + "&nbsp;" + comm.to_s + DENOM
+    comm == 0 ? EMPTY : comm.to_s + DENOM + "&nbsp;" + Requester.vis(comm)
   end
   def fair_text
-    fair == 0 ? EMPTY : Requester.vis(fair) + "&nbsp;" + fair.to_s + DENOM
+    fair == 0 ? EMPTY : fair.to_s + DENOM + "&nbsp;" + Requester.vis(fair)
   end
   def fast_text
-    fast == 0 ? EMPTY : Requester.vis(fast) + "&nbsp;" + fast.to_s + DENOM
+    fast == 0 ? EMPTY : fast.to_s + DENOM + "&nbsp;" + Requester.vis(fast)
   end
   def pay_text
-    pay == 0 ? EMPTY : Requester.vis(pay) + "&nbsp;" + pay.to_s + DENOM
+    pay == 0 ? EMPTY : pay.to_s + DENOM + "&nbsp;" + Requester.vis(pay)
   end
 
   def comm
