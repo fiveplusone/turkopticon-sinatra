@@ -1,8 +1,9 @@
 %tr.requester
-  %td
-    %strong= requester.amzn_name
-    = requester.amzn_id
-  %td
+  %td.req_desc
+    %strong= "<span class='req_name'>"+ requester.amzn_name + "</span>"
+    %br/
+    = "<span class='req_id'>"+ requester.amzn_id + "</span>"
+  %td.rating
     .attr_label comm:
     = requester.comm_text
     %br/
@@ -15,4 +16,4 @@
     .attr_label pay:
     = requester.pay_text
   %td
-    .center= requester.review_count.to_s
+    = requester.review_count.to_s
