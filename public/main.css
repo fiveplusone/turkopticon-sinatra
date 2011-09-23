@@ -21,6 +21,7 @@ border: 1px solid red;
 
 .notice {
   color: #090;
+  margin-bottom: 1em;
 }
 
 .error {

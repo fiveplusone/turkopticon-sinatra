@@ -55,5 +55,24 @@ get '/review' do
   haml :review
 end
 
+post '/review' do
+  req = Requester.find_by_amzn_name_and_amzn_id(params[:name], params[:id])
+  if req.nil?
+    params[:requester_id] = Requester.create(:amzn_name => params[:name], :amzn_id => params[:id]).id
+  else
+    params[:requester_id] = req.id
+  end
+  params.delete('name')
+  params.delete('id')
+  @review = Review.new(params)
+  if @review.save
+    session[:notice] = "Review saved."
+    redirect '/reviews'
+  else
+    @title = "Review a Requester"
+    haml :review
+  end
+end
+
 get '/faq' do
 end

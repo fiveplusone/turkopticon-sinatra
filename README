@@ -2,7 +2,7 @@ This is documentation for turkopticon-dev, the development branch of Turkopticon
 
 six@wtf.tw
 20 Jul 2011
-Last update 21 Sep 2011
+Last update 23 Sep 2011
 
 Turkopticon helps workers on Amazon's Mechanical Turk platform report and avoid shady employers ('requesters') by reviewing them on a third-party platform.
 
@@ -41,10 +41,11 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
 + Review a requester
   + Done
     + Form (get '/review', views/review.haml)
-  + Todo
     + Action on submit review (post '/review')
+  + Todo
     + Validation
     + Require verified, non-throwaway email address before posting
+    + Test what happens if I enter name and ID of a requester already in DB
 
 2 To Implement
 

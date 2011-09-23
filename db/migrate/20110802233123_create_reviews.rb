@@ -8,8 +8,7 @@ class CreateReviews < ActiveRecord::Migration
       t.integer :fast
       t.integer :pay
       t.integer :comm
-      t.boolean :tos_viol
-      t.boolean :scammer
+      t.string :hits
       t.timestamps
     end
   end

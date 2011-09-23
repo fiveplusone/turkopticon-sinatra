@@ -1,4 +1,4 @@
-PROTECTED_PATHS = ['/requesters', '/reviews']
+PROTECTED_PATHS = ['/requesters', '/reviews', '/review']
 
 before do
   path = request.path_info
