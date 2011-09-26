@@ -39,6 +39,7 @@ body {
 .req_name {
   color: red; 
 }	  
+
 .req_id { }
 
 .meter_container {
@@ -81,7 +82,7 @@ table.review_list th {
   width: 25px; 
 }
 
-tr.requester td { 
+tr.requester td, tr.review td { 
   border-bottom: 1px solid #B7A03F;
 }
 
