@@ -2,9 +2,13 @@
   %p
     .label Requester Name
     %input(type='text' name='name' value='#{params[:name]}')
+    - if @errors and @errors[:name]
+      %span.error= @errors[:name]
   %p
     .label Requester ID
     %input(type='text' name='id' value='#{params[:id]}')
+    - if @errors and @errors[:id]
+      %span.error= @errors[:id]
   %p
     .label How many HITs have you done for this requester?
     %br/

@@ -42,14 +42,15 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
   + Done
     + Form (get '/review', views/review.haml)
     + Action on submit review (post '/review')
-  + Todo
-    + Validation
-    + Require verified, non-throwaway email address before posting
+    + Don't allow review without requester name and ID
     + Test what happens if I enter name and ID of a requester already in DB
+  + Todo
+    + Require verified, non-throwaway email address before posting
+    + If I make a new review for a requester I already reviewed, ask to replace
+    + Edit review
 
 2 To Implement
 
-+ Edit review
 + Auto-cache requester avg_val and review_count after review save
 + Write new-data-scraper
 + Copy database
