@@ -2,9 +2,10 @@
 
 %tr.review
   %td
-    %strong= "<span class='req_name'>"+ requester.amzn_name + "</span>"
+    %strong
+      %span.req_name= requester.amzn_name
     %br/
-    = "<span class='req_id'>"+ requester.amzn_id + "</span>"
+    %span.req_id= requester.amzn_id
   %td
     .attr_label comm:
     = review.comm_text
