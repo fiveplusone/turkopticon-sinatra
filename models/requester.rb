@@ -24,16 +24,16 @@ class Requester < ActiveRecord::Base
   end
 
   def comm
-    reviews.collect{|r| r.comm}.compact.mean
+    reviews.collect{|r| r.comm}.delete_if{|e| e == 0}.mean
   end
   def fair
-    reviews.collect{|r| r.fair}.compact.mean
+    reviews.collect{|r| r.fair}.delete_if{|e| e == 0}.mean
   end
   def fast
-    reviews.collect{|r| r.fast}.compact.mean
+    reviews.collect{|r| r.fast}.delete_if{|e| e == 0}.mean
   end
   def pay
-    reviews.collect{|r| r.pay}.compact.mean
+    reviews.collect{|r| r.pay}.delete_if{|e| e == 0}.mean
   end
 
   def self.vis(val)

@@ -1,4 +1,9 @@
-%form(action='/review' method='POST')
+- if params[:update]
+  - action = '/update_review'
+- else
+  - action = '/review'
+
+%form(action="#{action}" method='POST')
   %p
     .label Requester Name
     %input(type='text' name='name' value='#{params[:name]}')
@@ -14,11 +19,12 @@
     %br/
     .label &nbsp;
     %select(name='hits')
-      %option(value='None') None
-      %option(value='1 - 5') 1 - 5
-      %option(value='6 - 20') 6 - 20
-      %option(value='21 - 100') 21 - 100
-      %option(value='101+') 101+
+      - for r in Review.hit_ranges
+        - if r == params[:hits]
+          %option(value='#{r}' selected='selected')= r
+        - else
+          %option(value='#{r}')= r
+
   %p
     Rate this requester on the following qualities, with 1 being worst among requesters you've had experience with and 5 being best among requesters you've had experience with.
   %table(cellspacing='0' cellpadding='2')
@@ -33,39 +39,46 @@
     %tr
       %td
         How fair has this requester been in approving or rejecting your work?
-      %td
-        %input(type='radio' name='fair' value='nil')
-      - for i in [*1..5]
+      - for i in [*0..5]
         %td
-          %input(type='radio' name='fair' value="#{i}")
+          - if params[:fair] == i
+            %input(type='radio' name='fair' value="#{i}" checked='true')
+          - else
+            %input(type='radio' name='fair' value="#{i}")
     %tr
       %td
         How promptly has this requester approved your work and paid?
-      %td
-        %input(type='radio' name='fast' value='nil')
-      - for i in [*1..5]
+      - for i in [*0..5]
         %td
-          %input(type='radio' name='fast' value="#{i}")
+          - if params[:fast] == i
+            %input(type='radio' name='fast' value="#{i}" checked='true')
+          - else
+            %input(type='radio' name='fast' value="#{i}")
     %tr
       %td
         How well has this requester paid for the amount of time their HITs take?
-      %td
-        %input(type='radio' name='pay' value='nil')
-      - for i in [*1..5]
+      - for i in [*0..5]
         %td
-          %input(type='radio' name='pay' value="#{i}")
+          - if params[:pay] == i
+            %input(type='radio' name='pay' value="#{i}" checked='true')
+          - else
+            %input(type='radio' name='pay' value="#{i}")
     %tr
       %td
         How responsive has this requester been to communications or concerns you have raised?
-      %td
-        %input(type='radio' name='comm' value='nil')
-      - for i in [*1..5]
+      - for i in [*0..5]
         %td
-          %input(type='radio' name='comm' value="#{i}")
+          - if params[:comm] == i
+            %input(type='radio' name='comm' value="#{i}" checked='true')
+          - else
+            %input(type='radio' name='comm' value="#{i}")
   %p
     Please briefly explain any issues you've had with this requester:
     %br/
     %textarea(name='notes' cols='40' rows='20')
+      = params[:notes]
   %input(name='person_id' type='hidden' value="#{session[:person_id]}")
+  - if params[:update]
+    %input(name='rid' type='hidden' value="#{params[:rid]}")
   %p
     %input(type='submit' value='Add Report')

@@ -38,6 +38,36 @@ get '/review' do
   haml :review
 end
 
+get '/edit_review/:rid' do
+  @title = "Edit Review"
+  @review = Review.find(params[:rid])
+  req = @review.requester
+  params[:name] = req.amzn_name
+  params[:id] = req.amzn_id
+  params[:hits] = @review.hits
+  params[:fair] = @review.fair
+  params[:fast] = @review.fast
+  params[:pay] = @review.pay
+  params[:comm] = @review.comm
+  params[:notes] = @review.notes
+  params[:update] = true
+  LOG.info params.inspect
+  haml :review
+end
+
+post '/update_review' do
+  @review = Review.find(params[:rid])
+  params.delete('rid')
+  params.delete('name')
+  params.delete('id')
+  if @review.update_attributes(params)
+    session[:notice] = "Review updated."
+    redirect '/reviews'
+  else
+    "Something went wrong. Try going back."
+  end
+end
+
 post '/review' do
   if params[:name].blank?
     @errors = {}
@@ -58,6 +88,7 @@ post '/review' do
     end
     params.delete('name')
     params.delete('id')
+    rev = Review.find_by_requester_id_and_person_id(params[:requester_id], session[:person_id])
     @review = Review.new(params)
     if @review.save
       session[:notice] = "Review saved."

@@ -2,7 +2,7 @@ This is documentation for turkopticon-dev, the development branch of Turkopticon
 
 six@wtf.tw
 20 Jul 2011
-Last update 23 Sep 2011
+Last update 28 Sep 2011
 
 Turkopticon helps workers on Amazon's Mechanical Turk platform report and avoid shady employers ('requesters') by reviewing them on a third-party platform.
 
@@ -44,10 +44,9 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
     + Action on submit review (post '/review')
     + Don't allow review without requester name and ID
     + Test what happens if I enter name and ID of a requester already in DB
+    + Edit review
   + Todo
     + Require verified, non-throwaway email address before posting
-    + If I make a new review for a requester I already reviewed, ask to replace
-    + Edit review
 
 2 To Implement
 
@@ -63,6 +62,8 @@ In turkopticon-dev, we attempt to refactor the existing codebase and introduce s
   + if moderator says a requester is scammer or TOS viol, indicate
 + Bring UI in line with turkoptidev.differenceengines.com/reputation-ui-screens/All%20reviews.htm
 + Link AMT ID to user account (from:dahn "thumbnail sketch")
++ What to do with multiple reviews of one requester by same person?
+  + Proposal: Only use most recent review in average, but don't delete old data
 
 3 Interactions to be Tested
 

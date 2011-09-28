@@ -6,6 +6,10 @@ class Review < ActiveRecord::Base
   DENOM = "&nbsp;/&nbsp;5"
   EMPTY = "<span class='mono'>no data</span>"
 
+  def self.hit_ranges
+    ['None', '1 - 5', '6 - 20', '21 - 100', '101+']
+  end
+
   def comm_text
     if comm == 0 or comm.nil?
       EMPTY
